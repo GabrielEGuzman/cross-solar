@@ -20,128 +20,146 @@ import org.springframework.lang.Nullable;
 @Table(name = "panel")
 public class Panel implements Serializable {
 
-  private static final long serialVersionUID = -8527695980909864257L;
+	private static final long serialVersionUID = -8527695980909864257L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
 
-  @NotNull
-  @Column(name = "serial")
-  String serial;
+	@NotNull
+	@Column(name = "serial")
+	String serial;
 
-  @Column(name = "longitude")
-  Double longitude;
+	@Column(name = "longitude")
+	Double longitude;
 
-  @Column(name = "latitude")
-  Double latitude;
+	@Column(name = "latitude")
+	Double latitude;
 
-  @Nullable
-  @Column(name = "brand")
-  String brand;
+	@Nullable
+	@Column(name = "brand")
+	String brand;
 
-  public Long getId() {
-    return id;
-  }
+	
+	
+	public Panel() {
+		super();
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public Panel(String serial, double longitude, double latitude, String brand) {
+		super();
+		this.serial = serial;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.brand = brand;
+	}
 
-  public String getSerial() {
-    return serial;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public void setSerial(String serial) {
-    this.serial = serial;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public Double getLongitude() {
-    return longitude;
-  }
+	public String getSerial() {
+		return serial;
+	}
 
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
-  }
+	public void setSerial(String serial) {
+		this.serial = serial;
+	}
 
-  public Double getLatitude() {
-    return latitude;
-  }
+	public Double getLongitude() {
+		return longitude;
+	}
 
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
 
-  public String getBrand() {
-    return brand;
-  }
+	public Double getLatitude() {
+		return latitude;
+	}
 
-  public void setBrand(String brand) {
-    this.brand = brand;
-  }
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
 
-  /*
-   * Id, Serial and Brand are only fields required to uniquely identify a Panel
-   * 
-   * @see java.lang.Object#hashCode()
-   */
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((brand == null) ? 0 : brand.hashCode());
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((serial == null) ? 0 : serial.hashCode());
-    return result;
-  }
+	public String getBrand() {
+		return brand;
+	}
 
-  /*
-   * Id, Serial and Brand are only fields required to uniquely identify a Panel
-   * 
-   * @see java.lang.Object#equals(java.lang.Object)
-   */
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null) {
-      return false;
-    }
-    if (getClass() != obj.getClass()) {
-      return false;
-    }
-    Panel other = (Panel) obj;
-    if (brand == null) {
-      if (other.brand != null) {
-        return false;
-      }
-    } else if (!brand.equals(other.brand)) {
-      return false;
-    }
-    if (id == null) {
-      if (other.id != null) {
-        return false;
-      }
-    } else if (!id.equals(other.id)) {
-      return false;
-    }
-    if (serial == null) {
-      if (other.serial != null) {
-        return false;
-      }
-    } else if (!serial.equals(other.serial)) {
-      return false;
-    }
-    return true;
-  }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-  /* (non-Javadoc)
-   * @see java.lang.Object#toString()
-   */
-  @Override
-  public String toString() {
-    return "Panel [id=" + id + ", serial=" + serial + ", longitude=" + longitude + ", latitude="
-        + latitude + ", brand=" + brand + "]";
-  }
+	/*
+	 * Id, Serial and Brand are only fields required to uniquely identify a
+	 * Panel
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((serial == null) ? 0 : serial.hashCode());
+		return result;
+	}
+
+	/*
+	 * Id, Serial and Brand are only fields required to uniquely identify a
+	 * Panel
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Panel other = (Panel) obj;
+		if (brand == null) {
+			if (other.brand != null) {
+				return false;
+			}
+		} else if (!brand.equals(other.brand)) {
+			return false;
+		}
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+		if (serial == null) {
+			if (other.serial != null) {
+				return false;
+			}
+		} else if (!serial.equals(other.serial)) {
+			return false;
+		}
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Panel [id=" + id + ", serial=" + serial + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", brand=" + brand + "]";
+	}
 }
